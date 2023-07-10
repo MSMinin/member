@@ -42,7 +42,6 @@ public class loginImp implements login{
 	public int select(String id) {
 		memberDTO dto = search(id);
 		while(true) {
-			System.out.println("-----------------------------------");
 			System.out.println("(1).회원정보 확인\t(2).회원정보 수정\t");
 			System.out.println("(3).회원 탈퇴\t(4).메인\t\t(5). 로그아웃");
 			System.out.print(">>> : ");
