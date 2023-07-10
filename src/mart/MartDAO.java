@@ -59,9 +59,8 @@ public class MartDAO {
 	}
 
 	// 장바구니 담기
-	public int insert(String id) {
+	public int insert(String id, MartDTO dto) {
 		
-		MartDTO dto = new MartDTO();
 		int re = 0;
 		
 		String sql = "insert into mart values(?, ?, ?, ?, ?)";

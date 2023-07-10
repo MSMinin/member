@@ -36,7 +36,8 @@ public static void main(String[] args) {
 				result = l.select(id);
 			}
 			break;
-		case 3: break;
+		case 3: 
+			break;
 		case 4: break;
 		}
 	}
