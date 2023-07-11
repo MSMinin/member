@@ -1,14 +1,6 @@
 package mart;
 
 public class MartDTO {
-	private String id;
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	
 	private int pro1, pro2, pro3, pro4;
 	
