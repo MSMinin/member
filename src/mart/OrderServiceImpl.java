@@ -38,25 +38,7 @@ public class OrderServiceImpl implements OrderService {
 				getList(mid);				
 				break;
 			case 3:
-				ArrayList<MartDTO> list = new ArrayList<>();
-				list = dao.getList(mid);
-				if (list == null) {
-					System.out.println(" ** 아무것도 담겨있지않습니다! **");
-					break;
-				}else {
-					System.out.println("주문 취소하시겠습니까?");
-					System.out.println("1.yes\t 2.no");
-					int ans = sc.nextInt();
-					if (ans == 1) {
-						delete(mid);
-						System.out.println("주문이 취소되었습니다");
-						System.out.println("main으로 돌아갑니다..\n");
-						return;
-					}else {
-						System.out.println("이전으로 돌아갑니다..");
-						break;
-					}
-				}
+				cancel(mid);
 			case 4:
 				return;
 			}
@@ -108,7 +90,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	private void getList(String mid) {
-		
 		ArrayList<MartDTO> list = new ArrayList<>();
 		list = dao.getList(mid);
 		if (list == null) {
@@ -125,10 +106,33 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 
+	
 	private int delete(String mid) {
 		int result = dao.delete(mid);
 		return result;
 	}
 	
 	
+	private void cancel(String mid) {
+		Scanner sc = new Scanner(System.in);
+		ArrayList<MartDTO> list = new ArrayList<>();
+		list = dao.getList(mid);
+
+		if (list == null) {
+			System.out.println(" ** 아무것도 담겨있지않습니다! **");
+			return;
+		}else {
+			System.out.println("주문 취소하시겠습니까?");
+			System.out.println("1.yes\t 2.no");
+			int ans = sc.nextInt();
+			if (ans == 1) {
+				delete(mid);
+				System.out.println("주문이 취소되었습니다");
+				System.out.println("main으로 돌아갑니다..\n");
+				return;
+			}else {
+				System.out.println("이전으로 돌아갑니다..");
+			}
+		}
+	}
 }
